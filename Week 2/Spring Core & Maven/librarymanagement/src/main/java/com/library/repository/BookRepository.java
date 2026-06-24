@@ -2,7 +2,7 @@ package com.library.repository;
 
 public class BookRepository {
 
-    public void displayBook() {
-        System.out.println("Book Repository: Fetching book data...");
+    public void getBook() {
+        System.out.println("Fetching book from repository...");
     }
 }

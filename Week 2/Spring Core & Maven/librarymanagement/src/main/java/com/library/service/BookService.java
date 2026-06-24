@@ -6,12 +6,13 @@ public class BookService {
 
     private BookRepository bookRepository;
 
+    // Setter Injection
     public void setBookRepository(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
 
-    public void showBookDetails() {
-        System.out.println("Book Service: Processing book details...");
-        bookRepository.displayBook();
+    public void displayBook() {
+        System.out.println("Book Service Running...");
+        bookRepository.getBook();
     }
 }
