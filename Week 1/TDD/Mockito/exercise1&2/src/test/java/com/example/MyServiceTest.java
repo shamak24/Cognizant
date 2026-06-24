@@ -20,4 +20,15 @@ public class MyServiceTest {
         String result = service.fetchData();
         assertEquals("Mock Data", result);
     }
+
+    @Test
+    public void testVerifyInteraction() {
+        ExternalApi mockApi = Mockito.mock(ExternalApi.class);
+
+        MyService service = new MyService(mockApi);
+
+        service.fetchData();
+
+        verify(mockApi).getData();
+    }
 }
