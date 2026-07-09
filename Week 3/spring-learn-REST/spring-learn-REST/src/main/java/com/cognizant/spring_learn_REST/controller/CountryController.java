@@ -7,7 +7,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cognizant.spring_learn.model.Country;
+import com.cognizant.spring_learn_REST.model.Country;
+import com.cognizant.spring_learn_REST.service.CountryService;
+
 
 @RestController
 public class CountryController {
@@ -25,6 +27,18 @@ public class CountryController {
 
         Country country =
                 context.getBean("country", Country.class);
+
+        LOGGER.info("END");
+
+        return country;
+    }
+     @GetMapping("/countries/{code}")
+    public Country getCountry(@PathVariable String code) {
+
+        LOGGER.info("START");
+
+        Country country =
+                countryService.getCountry(code);
 
         LOGGER.info("END");
 
